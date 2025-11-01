@@ -20,6 +20,19 @@ The pipeline is designed to:
 | **Orchestration** | **Apache Airflow** | Manages and schedules the dependencies between tasks, specifically orchestrating the execution of the `dbt` project. |
 | **Data Modeling** | **SQL & Jinja** | Used within dbt models to build analytical structures like fact and dimension tables. |
 
+
+## Libraries and Dependencies
+
+This project relies on the following specific libraries, installed via `pip` (for Python environment) and `dbt_packages` (for dbt environment):
+
+| Category | Library/Package | Purpose |
+| :--- | :--- | :--- |
+| **dbt Adapter** | `dbt-snowflake` | Required for dbt Core to connect and execute SQL commands against Snowflake. |
+| **dbt Package** | `dbt-labs/dbt-utils` | Provides powerful macros, notably used in the tutorial for generating **`surrogate_key`** hashes. |
+| **Airflow Operator** | `astronomer-cosmos` | Enables the conversion and execution of an entire **dbt Core project** into a single, comprehensive Airflow DAG with built-in task groups for models and tests. |
+| **Airflow Provider** | `apache-airflow-providers-snowflake` | Used by Airflow to establish and manage the connection object to the Snowflake warehouse. |
+
+***
 ---
 
 ## Key Concepts Explored
